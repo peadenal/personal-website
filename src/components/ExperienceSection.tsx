@@ -2,39 +2,34 @@ import AnimatedSection from "./AnimatedSection";
 
 const experience = [
   {
-    role: "VP of Product & Engineering",
-    company: "Meridian Technologies",
-    period: "2022 – Present",
-    description:
-      "Leading a 30-person product and engineering organization. Drove the platform from Series A to profitability while scaling the customer base 4x.",
+    role: "Director",
+    company: "KPMG US",
+    period: "Oct 2024 – Present",
+    description: "",
   },
   {
-    role: "Head of Product",
-    company: "Canopy Systems",
-    period: "2019 – 2022",
-    description:
-      "Rebuilt the product org from the ground up. Shipped a new platform that reduced churn by 35% and became the company's primary growth driver.",
+    role: "Associate Director",
+    company: "KPMG US",
+    period: "Oct 2022 – Oct 2024",
+    description: "",
   },
   {
-    role: "Senior Software Engineer",
-    company: "Stripe",
-    period: "2017 – 2019",
-    description:
-      "Built internal tools and APIs for the payments infrastructure team. Led a cross-functional initiative that improved developer onboarding time by 60%.",
+    role: "Manager",
+    company: "KPMG US",
+    period: "Apr 2019 – Oct 2022",
+    description: "",
   },
   {
-    role: "Co-Founder & CTO",
-    company: "Fieldwork (acquired)",
-    period: "2014 – 2017",
-    description:
-      "Co-founded a mobile-first platform for field service teams. Built the product from zero to acquisition, serving 500+ businesses.",
+    role: "Senior Consultant",
+    company: "Deloitte",
+    period: "Apr 2017 – Apr 2019",
+    description: "",
   },
   {
-    role: "Software Engineer",
-    company: "IBM",
-    period: "2012 – 2014",
-    description:
-      "Started my career in enterprise software, working on cloud infrastructure and learning what scale really means.",
+    role: "Consultant — Cyber Risk",
+    company: "Deloitte",
+    period: "Jul 2014 – Apr 2017",
+    description: "",
   },
 ];
 
@@ -52,7 +47,7 @@ const ExperienceSection = () => (
 
         <div className="space-y-10">
           {experience.map((e, i) => (
-            <AnimatedSection key={e.company} delay={i * 0.06}>
+            <AnimatedSection key={e.role + e.company} delay={i * 0.06}>
               <div className="relative pl-8">
                 {/* Dot */}
                 <div className="absolute left-0 top-[6px] w-[15px] h-[15px] rounded-full border-2 border-accent bg-background" />
