@@ -9,12 +9,12 @@ const socials = [
 ];
 
 const logos = [
-  { name: "KPMG", src: "/logos/kpmg.svg", height: 28 },
-  { name: "Deloitte", src: "/logos/deloitte.svg", height: 24 },
-  { name: "HHS", src: "/logos/hhs.webp", height: 28 },
-  { name: "NIH", src: "/logos/nih.png", height: 28 },
-  { name: "Wells Fargo", src: "/logos/wells-fargo.webp", height: 24 },
-  { name: "DOJ", src: "/logos/doj.svg", height: 26 },
+  { name: "KPMG", src: "/logos/kpmg.svg" },
+  { name: "Deloitte", src: "/logos/deloitte.svg" },
+  { name: "HHS", src: "/logos/hhs.svg" },
+  { name: "NIH", src: "/logos/nih.png" },
+  { name: "Wells Fargo", src: "/logos/wells-fargo.webp" },
+  { name: "DOJ", src: "/logos/doj.svg" },
 ];
 
 const HeroSection = () => (
@@ -77,14 +77,13 @@ const HeroSection = () => (
           <p className="text-xs text-muted-foreground uppercase tracking-wider mb-5">
             Previously worked with
           </p>
-          <div className="flex flex-wrap items-center gap-8 md:gap-12">
-            {logos.map(({ name, src, height }) => (
+          <div className="flex flex-wrap items-center justify-start gap-10 md:gap-14">
+            {logos.map(({ name, src }) => (
               <img
                 key={name}
                 src={src}
                 alt={name}
-                style={{ height }}
-                className="opacity-60 hover:opacity-90 transition-opacity grayscale brightness-75 dark:brightness-150 dark:invert"
+                className="h-7 w-auto object-contain grayscale opacity-50 hover:opacity-70 transition-opacity dark:invert"
               />
             ))}
           </div>
