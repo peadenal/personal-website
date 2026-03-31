@@ -17,9 +17,11 @@ const HeroSection = () => (
         {/* Headshot */}
         <AnimatedSection>
           <div className="w-48 h-48 md:w-full md:h-auto md:aspect-square rounded-2xl bg-secondary border border-border overflow-hidden mx-auto md:mx-0">
-            <div className="w-full h-full flex items-center justify-center text-muted-foreground text-sm">
-              Photo
-            </div>
+            <img
+              src="/profile.jpeg"
+              alt="Andrew Peaden"
+              className="w-full h-full object-cover"
+            />
           </div>
         </AnimatedSection>
 
