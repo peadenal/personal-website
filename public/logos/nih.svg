@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 28" fill="#6b7280">
-  <g transform="translate(0,2)">
-    <rect x="2" y="4" width="20" height="20" rx="10" fill="none" stroke="#6b7280" stroke-width="1.5"/>
-    <line x1="12" y1="8" x2="12" y2="20" stroke="#6b7280" stroke-width="1.5"/>
-    <line x1="6" y1="14" x2="18" y2="14" stroke="#6b7280" stroke-width="1.5"/>
-  </g>
-  <text x="28" y="21" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="20" letter-spacing="1">NIH</text>
-</svg>

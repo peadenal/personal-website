@@ -9,11 +9,11 @@ const socials = [
 ];
 
 const logos = [
-  { name: "KPMG", src: "/logos/kpmg.svg", height: 24 },
+  { name: "KPMG", src: "/logos/kpmg.svg", height: 28 },
   { name: "Deloitte", src: "/logos/deloitte.svg", height: 24 },
-  { name: "HHS", src: "/logos/hhs.svg", height: 26 },
-  { name: "NIH", src: "/logos/nih.svg", height: 26 },
-  { name: "Wells Fargo", src: "/logos/wells-fargo.svg", height: 24 },
+  { name: "HHS", src: "/logos/hhs.webp", height: 28 },
+  { name: "NIH", src: "/logos/nih.png", height: 28 },
+  { name: "Wells Fargo", src: "/logos/wells-fargo.webp", height: 24 },
   { name: "DOJ", src: "/logos/doj.svg", height: 26 },
 ];
 
@@ -84,7 +84,7 @@ const HeroSection = () => (
                 src={src}
                 alt={name}
                 style={{ height }}
-                className="opacity-50 hover:opacity-75 transition-opacity"
+                className="opacity-60 hover:opacity-90 transition-opacity grayscale brightness-75 dark:brightness-150 dark:invert"
               />
             ))}
           </div>
