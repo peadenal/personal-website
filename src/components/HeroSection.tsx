@@ -4,11 +4,11 @@ import AnimatedSection from "./AnimatedSection";
 const socials = [
   { icon: Linkedin, href: "https://linkedin.com/in/andrewpeaden", label: "LinkedIn" },
   { icon: Twitter, href: "https://x.com/andrewpeaden", label: "X / Twitter" },
-  { icon: Github, href: "https://github.com/andrewpeaden", label: "GitHub" },
+  { icon: Github, href: "https://github.com/peadenal", label: "GitHub" },
   { icon: Mail, href: "mailto:hello@andrewpeaden.com", label: "Email" },
 ];
 
-const logos = ["Acme Corp", "Northstar", "Meridian", "Basecamp", "Lattice"];
+const logos = ["KPMG", "Deloitte", "HHS", "NIH", "Wells Fargo", "DOJ"];
 
 const HeroSection = () => (
   <section className="min-h-screen flex items-center section-padding pt-28">
@@ -41,9 +41,7 @@ const HeroSection = () => (
 
           <AnimatedSection delay={0.15}>
             <p className="text-muted-foreground leading-relaxed max-w-lg mb-6">
-              Product leader, engineer, and advisor helping companies turn ambitious ideas into
-              products people rely on. I work across strategy, development, and growth — usually
-              all at once.
+              Technology strategist and builder helping organizations move ideas out of slide decks and into production-grade systems. I work across enterprise AI, data platforms, and team leadership — in environments where trust, governance, and execution matter.
             </p>
           </AnimatedSection>
 

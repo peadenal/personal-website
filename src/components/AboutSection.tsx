@@ -2,8 +2,8 @@ import AnimatedSection from "./AnimatedSection";
 
 const quickFacts = [
   { label: "Experience", value: "12+ years" },
-  { label: "Based in", value: "San Francisco, CA" },
-  { label: "Focus", value: "Product & Engineering" },
+  { label: "Based in", value: "Richmond, VA" },
+  { label: "Focus", value: "Technology Strategy & AI" },
 ];
 
 const AboutSection = () => (
@@ -18,20 +18,13 @@ const AboutSection = () => (
         <AnimatedSection delay={0.1}>
           <div className="space-y-5 text-muted-foreground leading-relaxed">
             <p>
-              I'm Andrew — a builder at heart who's spent over a decade working across product
-              development, engineering leadership, and business strategy. I've worn a lot of hats:
-              founder, developer, consultant, and advisor. What ties it all together is a deep
-              curiosity about how technology can solve real problems for real people.
+              I'm Andrew — a technology strategist and builder with over a decade of experience helping organizations turn complex ideas into production-grade systems that drive real decisions. My career has spanned U.S. federal agencies, financial services, IT, and hospitality — often in regulated, high-stakes environments where clarity, trust, and execution matter most.
             </p>
             <p>
-              I care about craft. Whether it's writing clean code, shaping a product strategy, or
-              building a team culture — I believe the details matter. I'm drawn to work that sits
-              at the intersection of complexity and clarity: hard problems that deserve elegant,
-              well-considered solutions.
+              I specialize in designing and operating enterprise AI environments on Azure, where organizations retain control over their infrastructure, data, and applications. I work across Microsoft's data and AI ecosystem — Azure, Power Platform, Fabric — alongside Databricks and ServiceNow, building end-to-end pipelines that connect raw data, business logic, and user experience. Increasingly, that includes layering LLM-powered reasoning on top of trusted data foundations to support judgment, not just visualization.
             </p>
             <p>
-              When I'm not building, you'll find me reading about systems thinking, exploring new
-              cities, or deep in one of those conversations that goes three hours longer than expected.
+              Beyond the technology, I spend significant time building and leading globally distributed teams — designing delivery models, platforms, and operating rhythms that scale capability on demand without sacrificing quality or governance. I believe great solutions are built through collaboration, grounded in insight, and measured by outcomes — not outputs.
             </p>
           </div>
         </AnimatedSection>

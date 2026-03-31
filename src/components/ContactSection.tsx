@@ -5,7 +5,7 @@ import AnimatedSection from "./AnimatedSection";
 const socials = [
   { icon: Linkedin, href: "https://linkedin.com/in/andrewpeaden", label: "LinkedIn" },
   { icon: Twitter, href: "https://x.com/andrewpeaden", label: "X / Twitter" },
-  { icon: Github, href: "https://github.com/andrewpeaden", label: "GitHub" },
+  { icon: Github, href: "https://github.com/peadenal", label: "GitHub" },
   { icon: Mail, href: "mailto:hello@andrewpeaden.com", label: "Email" },
 ];
 
