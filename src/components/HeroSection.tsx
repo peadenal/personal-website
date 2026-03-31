@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter, Mail, ArrowDown } from "lucide-react";
+import { Github, Linkedin, Twitter, Mail } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
 
 const socials = [
@@ -8,58 +8,79 @@ const socials = [
   { icon: Mail, href: "mailto:hello@andrewpeaden.com", label: "Email" },
 ];
 
+const logos = ["Acme Corp", "Northstar", "Meridian", "Basecamp", "Lattice"];
+
 const HeroSection = () => (
-  <section className="relative min-h-screen flex items-center justify-center section-padding pt-32">
-    {/* Subtle gradient orb */}
-    <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-[0.07] blur-[120px] pointer-events-none bg-accent" />
+  <section className="min-h-screen flex items-center section-padding pt-28">
+    <div className="max-w-5xl mx-auto w-full">
+      <div className="grid md:grid-cols-[280px_1fr] lg:grid-cols-[320px_1fr] gap-12 md:gap-16 items-center">
+        {/* Headshot */}
+        <AnimatedSection>
+          <div className="w-48 h-48 md:w-full md:h-auto md:aspect-square rounded-2xl bg-secondary border border-border overflow-hidden mx-auto md:mx-0">
+            <div className="w-full h-full flex items-center justify-center text-muted-foreground text-sm">
+              Photo
+            </div>
+          </div>
+        </AnimatedSection>
 
-    <div className="max-w-3xl mx-auto text-center relative z-10">
-      <AnimatedSection>
-        <p className="text-sm font-mono text-accent tracking-wider uppercase mb-6">
-          Builder · Strategist · Developer
-        </p>
-      </AnimatedSection>
+        {/* Text */}
+        <div>
+          <AnimatedSection delay={0.05}>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-snug mb-3">
+              Building at the intersection of technology and strategy
+            </h1>
+          </AnimatedSection>
 
-      <AnimatedSection delay={0.1}>
-        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.95] mb-6">
-          Andrew
-          <br />
-          <span className="text-gradient">Peaden</span>
-        </h1>
-      </AnimatedSection>
+          <AnimatedSection delay={0.1}>
+            <p className="text-lg md:text-xl text-muted-foreground font-medium mb-2">
+              Andrew Peaden
+            </p>
+          </AnimatedSection>
 
-      <AnimatedSection delay={0.2}>
-        <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto leading-relaxed mb-10">
-          I build products, teams, and strategies at the intersection of technology and business.
-          Currently helping companies turn ambitious ideas into things people actually use.
-        </p>
-      </AnimatedSection>
+          <AnimatedSection delay={0.15}>
+            <p className="text-muted-foreground leading-relaxed max-w-lg mb-6">
+              Product leader, engineer, and advisor helping companies turn ambitious ideas into
+              products people rely on. I work across strategy, development, and growth — usually
+              all at once.
+            </p>
+          </AnimatedSection>
 
-      <AnimatedSection delay={0.3}>
-        <div className="flex items-center justify-center gap-4">
-          {socials.map(({ icon: Icon, href, label }) => (
-            <a
-              key={label}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-full border border-border hover:border-accent hover:text-accent transition-all duration-200"
-              aria-label={label}
-            >
-              <Icon size={20} />
-            </a>
-          ))}
+          <AnimatedSection delay={0.2}>
+            <div className="flex items-center gap-3 mb-8">
+              {socials.map(({ icon: Icon, href, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+                  aria-label={label}
+                >
+                  <Icon size={18} />
+                </a>
+              ))}
+            </div>
+          </AnimatedSection>
         </div>
-      </AnimatedSection>
+      </div>
 
-      <AnimatedSection delay={0.5}>
-        <a
-          href="#about"
-          className="inline-flex items-center mt-16 text-muted-foreground hover:text-foreground transition-colors"
-          aria-label="Scroll down"
-        >
-          <ArrowDown size={20} className="animate-bounce" />
-        </a>
+      {/* Social proof bar */}
+      <AnimatedSection delay={0.3}>
+        <div className="mt-16 pt-8 border-t border-border">
+          <p className="text-xs text-muted-foreground uppercase tracking-wider mb-5">
+            Previously worked with
+          </p>
+          <div className="flex flex-wrap items-center gap-8 md:gap-12">
+            {logos.map((name) => (
+              <span
+                key={name}
+                className="text-sm font-medium text-muted-foreground/60"
+              >
+                {name}
+              </span>
+            ))}
+          </div>
+        </div>
       </AnimatedSection>
     </div>
   </section>
