@@ -13,7 +13,7 @@ const logos = [
   { name: "Deloitte", src: "/logos/deloitte.svg" },
   { name: "HHS", src: "/logos/hhs.svg" },
   { name: "NIH", src: "/logos/nih.png" },
-  { name: "Wells Fargo", src: "/logos/wells-fargo.webp" },
+  { name: "Wells Fargo", src: "/logos/wells-fargo.svg" },
   { name: "DOJ", src: "/logos/doj.svg" },
 ];
 
@@ -77,13 +77,14 @@ const HeroSection = () => (
           <p className="text-xs text-muted-foreground uppercase tracking-wider mb-5">
             Previously worked with
           </p>
-          <div className="flex flex-wrap items-center justify-start gap-10 md:gap-14">
+          <div className="flex flex-nowrap items-center gap-10 md:gap-12 overflow-hidden">
             {logos.map(({ name, src }) => (
               <img
                 key={name}
                 src={src}
                 alt={name}
-                className="h-7 w-auto object-contain grayscale opacity-50 hover:opacity-70 transition-opacity dark:invert"
+                className="max-h-6 w-auto shrink-0 object-contain"
+                style={{ filter: "grayscale(100%) opacity(0.4)" }}
               />
             ))}
           </div>
