@@ -1,30 +1,34 @@
-import { Code2, Lightbulb, Users, BarChart3 } from "lucide-react";
+import { Target, Code2, Cpu, TrendingUp } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
 
-const services = [
+const areas = [
   {
-    icon: Lightbulb,
+    icon: Target,
     title: "Product Strategy",
     description:
-      "Turning vague ideas into clear roadmaps. I help teams figure out what to build, why it matters, and how to get there.",
+      "Turning ambiguous opportunities into clear roadmaps and outcomes. I help teams define what to build, why it matters, and how to measure success.",
+    capabilities: ["Roadmap development", "Market analysis", "Prioritization frameworks"],
   },
   {
     icon: Code2,
-    title: "Full-Stack Development",
+    title: "Technical Leadership",
     description:
-      "From frontend polish to backend architecture. I build applications that are fast, reliable, and pleasant to use.",
+      "Leading engineering teams through complex builds — from architecture decisions to shipping reliably at scale.",
+    capabilities: ["System design", "Team building", "Technical mentorship"],
   },
   {
-    icon: Users,
-    title: "Team & Culture",
+    icon: Cpu,
+    title: "AI & Automation",
     description:
-      "Hiring, mentoring, and shaping engineering culture. Great products start with great teams.",
+      "Helping organizations identify and implement high-leverage AI applications that create real competitive advantage.",
+    capabilities: ["LLM integration", "Workflow automation", "Data infrastructure"],
   },
   {
-    icon: BarChart3,
-    title: "Growth & GTM",
+    icon: TrendingUp,
+    title: "Growth & Go-to-Market",
     description:
-      "Connecting product to market. I've helped startups and enterprises find traction and scale what's working.",
+      "Connecting product to market. I've helped startups and established companies find traction and scale what's working.",
+    capabilities: ["GTM strategy", "Analytics & attribution", "Conversion optimization"],
   },
 ];
 
@@ -32,20 +36,25 @@ const ServicesSection = () => (
   <section id="services" className="section-padding bg-section-alt">
     <div className="max-w-5xl mx-auto">
       <AnimatedSection>
-        <p className="text-sm font-mono text-accent tracking-wider uppercase mb-4">What I Do</p>
-        <h2 className="text-3xl md:text-4xl font-bold mb-12">Areas of focus.</h2>
+        <p className="text-xs uppercase tracking-wider text-muted-foreground mb-3">Areas of Focus</p>
+        <h2 className="text-3xl md:text-4xl font-bold mb-12">What I do.</h2>
       </AnimatedSection>
 
       <div className="grid sm:grid-cols-2 gap-6">
-        {services.map((s, i) => (
-          <AnimatedSection key={s.title} delay={i * 0.1}>
-            <div className="group p-6 md:p-8 rounded-xl bg-card border border-border hover:border-accent/40 transition-all duration-300">
-              <s.icon
-                size={28}
-                className="text-accent mb-4 transition-transform duration-300 group-hover:scale-110"
-              />
-              <h3 className="text-lg font-semibold mb-2">{s.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{s.description}</p>
+        {areas.map((a, i) => (
+          <AnimatedSection key={a.title} delay={i * 0.08}>
+            <div className="p-6 md:p-8 rounded-lg bg-card border border-border">
+              <a.icon size={24} className="text-accent mb-4" strokeWidth={1.5} />
+              <h3 className="text-lg font-semibold mb-2">{a.title}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed mb-4">{a.description}</p>
+              <ul className="space-y-1">
+                {a.capabilities.map((c) => (
+                  <li key={c} className="text-xs text-muted-foreground flex items-center gap-2">
+                    <span className="w-1 h-1 rounded-full bg-accent flex-shrink-0" />
+                    {c}
+                  </li>
+                ))}
+              </ul>
             </div>
           </AnimatedSection>
         ))}
