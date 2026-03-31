@@ -3,7 +3,7 @@ import AnimatedSection from "./AnimatedSection";
 const quickFacts = [
   { label: "Experience", value: "12+ years" },
   { label: "Based in", value: "Richmond, VA" },
-  { label: "Focus", value: "Technology Strategy & AI" },
+  { label: "Focus", value: "Technology Strategy & Enterprise AI" },
 ];
 
 const AboutSection = () => (

@@ -8,7 +8,7 @@ const socials = [
   { icon: Mail, href: "mailto:hello@andrewpeaden.com", label: "Email" },
 ];
 
-const companies = ["KPMG", "Deloitte", "HHS", "NIH", "Wells Fargo", "DOJ"];
+const previousCompanies = ["Deloitte", "HHS", "NIH", "Wells Fargo", "DOJ"];
 
 const HeroSection = () => (
   <section className="min-h-screen flex items-center section-padding pt-28">
@@ -29,17 +29,11 @@ const HeroSection = () => (
         <div>
           <AnimatedSection delay={0.05}>
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-snug mb-3">
-              Building at the intersection of technology and strategy
+              Building at the intersection of technology strategy and enterprise AI
             </h1>
           </AnimatedSection>
 
           <AnimatedSection delay={0.1}>
-            <p className="text-lg md:text-xl text-muted-foreground font-medium mb-2">
-              Andrew Peaden
-            </p>
-          </AnimatedSection>
-
-          <AnimatedSection delay={0.15}>
             <p className="text-muted-foreground leading-relaxed max-w-lg mb-6">
               Technology strategist and builder helping organizations move ideas out of slide decks and into production-grade systems. I work across enterprise AI, data platforms, and team leadership — in environments where trust, governance, and execution matter.
             </p>
@@ -67,11 +61,16 @@ const HeroSection = () => (
       {/* Social proof bar */}
       <AnimatedSection delay={0.3}>
         <div className="mt-16 pt-8 border-t border-border">
-          <p className="text-xs text-muted-foreground uppercase tracking-wider mb-5">
+          <p className="text-xs text-muted-foreground uppercase tracking-wider mb-3">
+            Currently at
+          </p>
+          <span className="text-sm font-medium text-muted-foreground/60">KPMG</span>
+
+          <p className="text-xs text-muted-foreground uppercase tracking-wider mt-6 mb-3">
             Previously worked with
           </p>
           <div className="flex flex-nowrap items-center gap-8 md:gap-12">
-            {companies.map((name) => (
+            {previousCompanies.map((name) => (
               <span
                 key={name}
                 className="text-sm font-medium text-muted-foreground/60 whitespace-nowrap"
