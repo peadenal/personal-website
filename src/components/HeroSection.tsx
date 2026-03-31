@@ -8,14 +8,7 @@ const socials = [
   { icon: Mail, href: "mailto:hello@andrewpeaden.com", label: "Email" },
 ];
 
-const logos = [
-  { name: "KPMG", src: "/logos/kpmg.svg" },
-  { name: "Deloitte", src: "/logos/deloitte.svg" },
-  { name: "HHS", src: "/logos/hhs.svg" },
-  { name: "NIH", src: "/logos/nih.png" },
-  { name: "Wells Fargo", src: "/logos/wells-fargo.svg" },
-  { name: "DOJ", src: "/logos/doj.svg" },
-];
+const companies = ["KPMG", "Deloitte", "HHS", "NIH", "Wells Fargo", "DOJ"];
 
 const HeroSection = () => (
   <section className="min-h-screen flex items-center section-padding pt-28">
@@ -77,15 +70,14 @@ const HeroSection = () => (
           <p className="text-xs text-muted-foreground uppercase tracking-wider mb-5">
             Previously worked with
           </p>
-          <div className="flex flex-nowrap items-center gap-10 md:gap-12 overflow-hidden">
-            {logos.map(({ name, src }) => (
-              <img
+          <div className="flex flex-nowrap items-center gap-8 md:gap-12">
+            {companies.map((name) => (
+              <span
                 key={name}
-                src={src}
-                alt={name}
-                className="max-h-6 w-auto shrink-0 object-contain"
-                style={{ filter: "grayscale(100%) opacity(0.4)" }}
-              />
+                className="text-sm font-medium text-muted-foreground/60 whitespace-nowrap"
+              >
+                {name}
+              </span>
             ))}
           </div>
         </div>
