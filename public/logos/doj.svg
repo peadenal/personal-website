@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 28" fill="#6b7280">
+  <g transform="translate(2,2)">
+    <line x1="10" y1="2" x2="10" y2="22" stroke="#6b7280" stroke-width="2"/>
+    <line x1="4" y1="2" x2="16" y2="2" stroke="#6b7280" stroke-width="1.5"/>
+    <circle cx="10" cy="22" r="2" />
+    <rect x="4" y="20" width="12" height="3" rx="1"/>
+  </g>
+  <text x="26" y="21" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="18" letter-spacing="2">DOJ</text>
+</svg>

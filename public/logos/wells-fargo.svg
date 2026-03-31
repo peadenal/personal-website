@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 28" fill="#6b7280">
+  <g transform="translate(0,2)">
+    <path d="M4 20 L8 6 L12 16 L16 6 L20 20" fill="none" stroke="#6b7280" stroke-width="1.5" stroke-linejoin="round"/>
+  </g>
+  <text x="26" y="21" font-family="'Georgia', serif" font-weight="400" font-size="18" letter-spacing="0.5">Wells Fargo</text>
+</svg>
