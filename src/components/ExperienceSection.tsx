@@ -47,14 +47,16 @@ const timeline: TimelineEntry[] = [
     role: "Senior Consultant",
     company: "Deloitte",
     period: "Apr 2017 – Apr 2019",
-    description: "",
+    description:
+      "Delivered analytics and regulatory compliance solutions for financial services and federal clients — including anti-money laundering and KYC programs for a major financial institution and workflow analytics for the Department of Justice.",
   },
   {
     type: "career",
     role: "Consultant — Cyber Risk",
     company: "Deloitte",
     period: "Jul 2014 – Apr 2017",
-    description: "",
+    description:
+      "Supported identity and access management and cybersecurity programs for the Department of Health and Human Services and the National Institutes of Health, helping federal agencies strengthen their security posture across critical systems.",
   },
   {
     type: "education",
