@@ -1,12 +1,11 @@
-import { Github, Linkedin, Twitter, Mail, Send } from "lucide-react";
+import { Github, Linkedin, Mail, Send } from "lucide-react";
 import { useState, FormEvent } from "react";
 import AnimatedSection from "./AnimatedSection";
 
 const socials = [
-  { icon: Linkedin, href: "https://linkedin.com/in/andrewpeaden", label: "LinkedIn" },
-  { icon: Twitter, href: "https://x.com/andrewpeaden", label: "X / Twitter" },
+  { icon: Linkedin, href: "https://linkedin.com/in/alpeaden", label: "LinkedIn" },
   { icon: Github, href: "https://github.com/peadenal", label: "GitHub" },
-  { icon: Mail, href: "mailto:hello@andrewpeaden.com", label: "Email" },
+  { icon: Mail, href: "mailto:peadenal@gmail.com", label: "Email" },
 ];
 
 const ContactSection = () => {
@@ -24,8 +23,7 @@ const ContactSection = () => {
           <p className="text-xs uppercase tracking-wider text-muted-foreground mb-3">Connect</p>
           <h2 className="text-3xl md:text-4xl font-bold mb-3">Get in touch.</h2>
           <p className="text-muted-foreground mb-10 max-w-lg">
-            Whether you have a project in mind, want to collaborate, or just want to say hello —
-            I'd love to hear from you. I'm currently open to advisory and consulting engagements.
+            Whether you want to connect, collaborate, or just say hello — I'd love to hear from you.
           </p>
         </AnimatedSection>
 

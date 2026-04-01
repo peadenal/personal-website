@@ -1,11 +1,10 @@
-import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
 
 const socials = [
-  { icon: Linkedin, href: "https://linkedin.com/in/andrewpeaden", label: "LinkedIn" },
-  { icon: Twitter, href: "https://x.com/andrewpeaden", label: "X / Twitter" },
+  { icon: Linkedin, href: "https://linkedin.com/in/alpeaden", label: "LinkedIn" },
   { icon: Github, href: "https://github.com/peadenal", label: "GitHub" },
-  { icon: Mail, href: "mailto:hello@andrewpeaden.com", label: "Email" },
+  { icon: Mail, href: "mailto:peadenal@gmail.com", label: "Email" },
 ];
 
 const previousCompanies = ["Deloitte", "HHS", "NIH", "Wells Fargo", "DOJ"];
