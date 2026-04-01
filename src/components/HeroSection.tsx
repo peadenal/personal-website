@@ -7,7 +7,14 @@ const socials = [
   { icon: Mail, href: "mailto:peadenal@gmail.com", label: "Email" },
 ];
 
-const previousCompanies = ["Deloitte", "HHS", "NIH", "Wells Fargo", "DOJ"];
+const currentLogo = { name: "KPMG", src: "/logos/kpmg.svg", height: 28 };
+const previousLogos = [
+  { name: "Deloitte", src: "/logos/deloitte.svg", height: 24 },
+  { name: "HHS", src: "/logos/hhs.svg", height: 28 },
+  { name: "NIH", src: "/logos/nih.png", height: 28 },
+  { name: "Wells Fargo", src: "/logos/wellsfargo.svg", height: 36 },
+  { name: "DOJ", src: "/logos/doj.svg", height: 36 },
+];
 
 const HeroSection = () => (
   <section className="min-h-screen flex items-center section-padding pt-28">
@@ -63,19 +70,25 @@ const HeroSection = () => (
           <p className="text-xs text-muted-foreground uppercase tracking-wider mb-3">
             Currently at
           </p>
-          <span className="text-sm font-medium text-muted-foreground/60">KPMG</span>
+          <img
+            src={currentLogo.src}
+            alt={currentLogo.name}
+            style={{ maxHeight: currentLogo.height }}
+            className="w-auto object-contain shrink-0 logo-muted"
+          />
 
           <p className="text-xs text-muted-foreground uppercase tracking-wider mt-6 mb-3">
             Previously worked with
           </p>
-          <div className="flex flex-nowrap items-center gap-8 md:gap-12">
-            {previousCompanies.map((name) => (
-              <span
+          <div className="flex flex-nowrap items-center gap-10">
+            {previousLogos.map(({ name, src, height }) => (
+              <img
                 key={name}
-                className="text-sm font-medium text-muted-foreground/60 whitespace-nowrap"
-              >
-                {name}
-              </span>
+                src={src}
+                alt={name}
+                style={{ maxHeight: height }}
+                className="w-auto object-contain shrink-0 logo-muted"
+              />
             ))}
           </div>
         </div>
