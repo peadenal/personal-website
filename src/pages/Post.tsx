@@ -49,7 +49,7 @@ const Post = () => {
             ))}
           </div>
 
-          <Comments />
+          <Comments slug={post.slug} />
         </article>
       </main>
       <Footer />
