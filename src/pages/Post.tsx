@@ -1,18 +1,32 @@
-import { useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Comments from "@/components/Comments";
+import PostReactions from "@/components/PostReactions";
 import NotFound from "./NotFound.tsx";
 import { formatPostDate, getPost } from "@/content/posts";
+import { useEngagement } from "@/hooks/useEngagement";
+
+const scrollToDiscussion = (smooth = false) =>
+  document.getElementById("discussion")?.scrollIntoView({ behavior: smooth ? "smooth" : "auto" });
 
 const Post = () => {
   const { slug } = useParams();
+  const { hash, search } = useLocation();
   const post = getPost(slug);
+  const { statsFor, voteFor, like, recordDislike } = useEngagement();
+
+  // Arriving from a thumbs-down click on the writing list opens the comment form in thumbs-down mode.
+  const [disliking, setDisliking] = useState(() => new URLSearchParams(search).get("feedback") === "down");
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    if (hash === "#discussion") scrollToDiscussion();
+    else window.scrollTo(0, 0);
+  }, [slug, hash]);
+
+  useEffect(() => {
     if (!post) return;
     const previous = document.title;
     document.title = `${post.title} — Andrew Peaden`;
@@ -22,6 +36,8 @@ const Post = () => {
   }, [post]);
 
   if (!post) return <NotFound />;
+
+  const vote = voteFor(post.slug);
 
   return (
     <>
@@ -49,7 +65,25 @@ const Post = () => {
             ))}
           </div>
 
-          <Comments slug={post.slug} />
+          <div className="mt-12">
+            <PostReactions
+              slug={post.slug}
+              stats={statsFor(post.slug)}
+              vote={vote}
+              onLike={() => like(post.slug)}
+              onDislike={() => {
+                setDisliking(true);
+                scrollToDiscussion(true);
+              }}
+            />
+          </div>
+
+          <Comments
+            slug={post.slug}
+            disliking={disliking && vote === null}
+            onCancelDislike={() => setDisliking(false)}
+            onDisliked={() => recordDislike(post.slug)}
+          />
         </article>
       </main>
       <Footer />

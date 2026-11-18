@@ -1,13 +1,10 @@
 import { FormEvent, useEffect, useRef, useState } from "react";
+import { ThumbsDown } from "lucide-react";
+import { COMMENTS_ENDPOINT as ENDPOINT, SUPABASE_HEADERS as HEADERS, rpc } from "@/lib/supabase";
 
-// Comments live in a small Supabase table. Visitors can read approved comments
-// and submit new ones; a new comment stays hidden until `approved` is set to
-// true in the Supabase dashboard (Table Editor → comments). The key below is a
-// publishable key, safe to ship in the browser — database rules do the gating.
-const SUPABASE_URL = "https://hstokmebfvxaniqmjdug.supabase.co";
-const SUPABASE_KEY = "sb_publishable_PZpaPAzUAe7IS_YX86PFfw_uSKU9VCw";
-const ENDPOINT = `${SUPABASE_URL}/rest/v1/comments`;
-const HEADERS = { apikey: SUPABASE_KEY, "Content-Type": "application/json" };
+// Visitors can read approved comments and submit new ones; a new comment stays
+// hidden until `approved` is set to true in the Supabase dashboard (Table
+// Editor → comments). A thumbs down is always submitted together with a comment.
 
 const MAX_NAME = 80;
 const MAX_BODY = 2000;
@@ -28,7 +25,15 @@ const formatDate = (iso: string) =>
 const inputClass =
   "w-full rounded-md border border-input bg-background px-3 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring";
 
-const Comments = ({ slug }: { slug: string }) => {
+interface Props {
+  slug: string;
+  /** True when the visitor chose thumbs down: the comment is required and is saved with the thumbs down. */
+  disliking?: boolean;
+  onCancelDislike?: () => void;
+  onDisliked?: () => void;
+}
+
+const Comments = ({ slug, disliking = false, onCancelDislike, onDisliked }: Props) => {
   const [comments, setComments] = useState<Comment[]>([]);
   const [name, setName] = useState("");
   const [body, setBody] = useState("");
@@ -66,12 +71,17 @@ const Comments = ({ slug }: { slug: string }) => {
 
     setStatus("sending");
     try {
-      const res = await fetch(ENDPOINT, {
-        method: "POST",
-        headers: { ...HEADERS, Prefer: "return=minimal" },
-        body: JSON.stringify({ post_slug: slug, author_name: author, body: text }),
-      });
-      if (!res.ok) throw new Error(`Comment failed: ${res.status}`);
+      if (disliking) {
+        await rpc("dislike_post", { p_post_slug: slug, p_author_name: author, p_body: text });
+        onDisliked?.();
+      } else {
+        const res = await fetch(ENDPOINT, {
+          method: "POST",
+          headers: { ...HEADERS, Prefer: "return=minimal" },
+          body: JSON.stringify({ post_slug: slug, author_name: author, body: text }),
+        });
+        if (!res.ok) throw new Error(`Comment failed: ${res.status}`);
+      }
       setName("");
       setBody("");
       setStatus("sent");
@@ -81,7 +91,7 @@ const Comments = ({ slug }: { slug: string }) => {
   };
 
   return (
-    <section aria-label="Comments" className="mt-16 pt-10 border-t border-border">
+    <section id="discussion" aria-label="Comments" className="mt-8 pt-10 border-t border-border scroll-mt-24">
       <h2 className="text-xl font-semibold mb-2">Discussion</h2>
       <p className="text-sm text-muted-foreground mb-8">
         Agree, disagree, or seeing something different on your team? Add your thoughts below.
@@ -112,6 +122,20 @@ const Comments = ({ slug }: { slug: string }) => {
         </div>
       ) : (
         <form onSubmit={onSubmit} className="space-y-4">
+          {disliking && (
+            <div className="rounded-md border border-border bg-card px-4 py-3 text-sm space-y-1">
+              <p className="flex items-center gap-2 font-medium">
+                <ThumbsDown size={14} /> You’re giving this a thumbs down.
+              </p>
+              <p className="text-muted-foreground">
+                A thumbs down needs a comment. Tell me what you disagree with or what’s missing, and it will be
+                counted when you submit.{" "}
+                <button type="button" onClick={onCancelDislike} className="underline hover:text-foreground">
+                  Just leave a comment instead
+                </button>
+              </p>
+            </div>
+          )}
           <div>
             <label htmlFor="comment-name" className="block text-sm font-medium mb-1.5">
               Name
@@ -162,7 +186,7 @@ const Comments = ({ slug }: { slug: string }) => {
               disabled={status === "sending"}
               className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors disabled:opacity-60"
             >
-              {status === "sending" ? "Sending…" : "Post comment"}
+              {status === "sending" ? "Sending…" : disliking ? "Submit thumbs down" : "Post comment"}
             </button>
             <span className="text-xs text-muted-foreground">Comments appear after review.</span>
           </div>
