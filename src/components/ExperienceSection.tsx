@@ -9,11 +9,19 @@ type TimelineEntry =
 const timeline: TimelineEntry[] = [
   {
     type: "career",
+    role: "Senior Director — Innovation & Accelerated Solutions",
+    company: "KPMG US",
+    period: "Oct 2026 – Present",
+    description:
+      "Running innovation and accelerated solutions development for KPMG US's legal, risk management, and compliance function — leading a global team that takes solutions from idea to production and modernizes existing products. The team uses AI throughout the development process to put working prototypes in stakeholders' hands within days of the first conversation, then iterates with them to a version one and beyond.",
+  },
+  {
+    type: "career",
     role: "Director",
     company: "KPMG US",
-    period: "Oct 2024 – Present",
+    period: "Oct 2024 – Oct 2026",
     description:
-      "Leading a risk intelligence team building AI-enabled products for risk management, legal, and compliance stakeholders — transforming complex regulatory and operational challenges into scalable, production-grade decision-support tools.",
+      "Led a risk intelligence team building AI-enabled products for risk management, legal, and compliance stakeholders — turning complex regulatory and operational challenges into scalable, production-grade decision-support tools.",
   },
   {
     type: "career",
