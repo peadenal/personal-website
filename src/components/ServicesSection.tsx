@@ -1,4 +1,4 @@
-import { Target, Cpu, Database, Users, Workflow, Rocket } from "lucide-react";
+import { Target, Database, Users, Workflow, Lightbulb, Rocket } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
 
 const areas = [
@@ -7,7 +7,7 @@ const areas = [
     title: "AI Product Development",
     description:
       "Taking products from idea to production with AI built into the development process itself — putting working prototypes in stakeholders' hands within days of the first conversation, then iterating together to a version one and beyond.",
-    capabilities: ["AI-accelerated development with Lovable & Cursor", "Rapid prototyping & design workshops", "Legacy product modernization"],
+    capabilities: ["AI-accelerated development with Lovable & Cursor", "Idea-to-production delivery", "Legacy product modernization"],
   },
   {
     icon: Target,
@@ -17,18 +17,18 @@ const areas = [
     capabilities: ["Platform evaluation & selection", "System architecture design", "Technology roadmap development"],
   },
   {
-    icon: Cpu,
-    title: "Enterprise AI Adoption",
-    description:
-      "Guiding organizations from AI ambition to production reality — standing up secure Azure environments, establishing data governance, and driving the change management that makes adoption stick.",
-    capabilities: ["Azure AI environment design", "AI governance & compliance", "Organizational change management"],
-  },
-  {
     icon: Database,
     title: "Data & Analytics Platforms",
     description:
       "Building end-to-end pipelines that connect raw data to decision-making — giving leadership real visibility across operations, not just dashboards.",
     capabilities: ["Microsoft Fabric & Databricks", "Power Platform & ServiceNow", "LLM-powered decision support"],
+  },
+  {
+    icon: Lightbulb,
+    title: "Design Thinking & Rapid Prototyping",
+    description:
+      "Facilitating workshops that translate early-stage ideas into tangible designs and interactive prototypes — building shared vision and alignment, whether the path leads to production now or six months from now.",
+    capabilities: ["Design thinking workshops", "Concept-to-prototype sprints", "Stakeholder alignment & visualization"],
   },
   {
     icon: Users,
