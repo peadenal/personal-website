@@ -12,13 +12,8 @@ const navLinks = [
 ];
 
 const Navbar = () => {
-  const [dark, setDark] = useState(() => {
-    if (typeof window === "undefined") return false;
-    return (
-      localStorage.getItem("theme") === "dark" ||
-      (!localStorage.getItem("theme") && window.matchMedia("(prefers-color-scheme: dark)").matches)
-    );
-  });
+  // Light or dark follows the visitor's local time of day (see public/theme.js).
+  const [dark, setDark] = useState(() => window.__siteTheme?.isDarkNow() ?? false);
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   // Section links are anchors on the home page; from any other page, point back to it.
@@ -27,8 +22,21 @@ const Navbar = () => {
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", dark);
-    localStorage.setItem("theme", dark ? "dark" : "light");
   }, [dark]);
+
+  // Re-check each minute so a page left open switches at sunset or sunrise.
+  useEffect(() => {
+    const id = window.setInterval(() => {
+      if (window.__siteTheme) setDark(window.__siteTheme.isDarkNow());
+    }, 60_000);
+    return () => window.clearInterval(id);
+  }, []);
+
+  // A manual toggle holds for the rest of the visit.
+  const toggleTheme = () => {
+    window.__siteTheme?.setOverride(!dark);
+    setDark(!dark);
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -59,7 +67,7 @@ const Navbar = () => {
             </a>
           ))}
           <button
-            onClick={() => setDark(!dark)}
+            onClick={toggleTheme}
             className="p-2 rounded-md hover:bg-secondary transition-colors text-muted-foreground hover:text-foreground"
             aria-label="Toggle theme"
           >
@@ -70,7 +78,7 @@ const Navbar = () => {
         {/* Mobile */}
         <div className="flex md:hidden items-center gap-1">
           <button
-            onClick={() => setDark(!dark)}
+            onClick={toggleTheme}
             className="p-2 rounded-md hover:bg-secondary transition-colors text-muted-foreground"
             aria-label="Toggle theme"
           >
