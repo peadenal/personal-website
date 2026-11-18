@@ -1,3 +1,5 @@
+import { useLocation } from "react-router-dom";
+
 const footerLinks = [
   { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
@@ -5,7 +7,9 @@ const footerLinks = [
   { label: "Connect", href: "#contact" },
 ];
 
-const Footer = () => (
+const Footer = () => {
+  const onHome = useLocation().pathname === "/";
+  return (
   <footer className="border-t border-border py-8 px-6">
     <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
       <span className="text-xs text-muted-foreground">
@@ -15,7 +19,7 @@ const Footer = () => (
         {footerLinks.map((l) => (
           <a
             key={l.href}
-            href={l.href}
+            href={onHome ? l.href : `/${l.href}`}
             className="text-xs text-muted-foreground hover:text-foreground transition-colors"
           >
             {l.label}
@@ -24,6 +28,7 @@ const Footer = () => (
       </div>
     </div>
   </footer>
-);
+  );
+};
 
 export default Footer;

@@ -1,4 +1,7 @@
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
+import { formatPostDate, posts } from "@/content/posts";
 
 const WritingSection = () => (
   <section id="writing" className="section-padding">
@@ -9,7 +12,27 @@ const WritingSection = () => (
       </AnimatedSection>
 
       <AnimatedSection delay={0.1}>
-        <p className="text-sm text-muted-foreground text-center py-12">Coming soon.</p>
+        <ul className="divide-y divide-border border-y border-border">
+          {posts.map((post) => (
+            <li key={post.slug}>
+              <Link to={`/writing/${post.slug}`} className="group flex items-start justify-between gap-6 py-6">
+                <div>
+                  <p className="text-xs text-muted-foreground mb-2">
+                    <time dateTime={post.date}>{formatPostDate(post.date)}</time>
+                  </p>
+                  <h3 className="text-lg md:text-xl font-semibold mb-1 group-hover:text-accent transition-colors">
+                    {post.title}
+                  </h3>
+                  <p className="text-sm md:text-base text-muted-foreground">{post.subtitle}</p>
+                </div>
+                <ArrowRight
+                  size={18}
+                  className="mt-7 shrink-0 text-muted-foreground group-hover:text-accent group-hover:translate-x-0.5 transition-all"
+                />
+              </Link>
+            </li>
+          ))}
+        </ul>
       </AnimatedSection>
     </div>
   </section>

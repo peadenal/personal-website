@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { Moon, Sun, Menu, X } from "lucide-react";
 
 const navLinks = [
@@ -20,6 +21,9 @@ const Navbar = () => {
   });
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  // Section links are anchors on the home page; from any other page, point back to it.
+  const onHome = useLocation().pathname === "/";
+  const to = (hash: string) => (onHome ? hash : `/${hash}`);
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", dark);
@@ -39,7 +43,7 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-5xl mx-auto flex items-center justify-between px-6 py-4">
-        <a href="#" className="text-sm font-semibold tracking-tight text-foreground">
+        <a href={onHome ? "#" : "/"} className="text-sm font-semibold tracking-tight text-foreground">
           Andrew Peaden
         </a>
 
@@ -48,7 +52,7 @@ const Navbar = () => {
           {navLinks.map((l) => (
             <a
               key={l.href}
-              href={l.href}
+              href={to(l.href)}
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               {l.label}
@@ -88,7 +92,7 @@ const Navbar = () => {
           {navLinks.map((l) => (
             <a
               key={l.href}
-              href={l.href}
+              href={to(l.href)}
               onClick={() => setMenuOpen(false)}
               className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
