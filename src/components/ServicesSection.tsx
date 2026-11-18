@@ -1,7 +1,14 @@
-import { Target, Cpu, Database, Users, Workflow, Lightbulb } from "lucide-react";
+import { Target, Cpu, Database, Users, Workflow, Rocket } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
 
 const areas = [
+  {
+    icon: Rocket,
+    title: "AI Product Development",
+    description:
+      "Taking products from idea to production with AI built into the development process itself — putting working prototypes in stakeholders' hands within days of the first conversation, then iterating together to a version one and beyond.",
+    capabilities: ["AI-accelerated development with Lovable & Cursor", "Rapid prototyping & design workshops", "Legacy product modernization"],
+  },
   {
     icon: Target,
     title: "Technology & Product Strategy",
@@ -36,13 +43,6 @@ const areas = [
     description:
       "Mapping existing business processes, identifying inefficiencies and automation opportunities, then redesigning workflows with technology and AI — not just digitizing what's broken, but rethinking how work should flow.",
     capabilities: ["Process mapping & analysis", "Automation opportunity identification", "AI-enabled workflow redesign"],
-  },
-  {
-    icon: Lightbulb,
-    title: "Design Thinking & Rapid Prototyping",
-    description:
-      "Facilitating workshops that translate early-stage ideas into tangible designs and interactive prototypes — building shared vision and alignment, whether the path leads to production now or six months from now.",
-    capabilities: ["Design thinking workshops", "Concept-to-prototype sprints", "Stakeholder alignment & visualization"],
   },
 ];
 
