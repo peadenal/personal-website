@@ -80,7 +80,7 @@ const HeroSection = () => (
           <p className="text-xs text-muted-foreground uppercase tracking-wider mt-6 mb-3">
             Previously worked with
           </p>
-          <div className="flex flex-nowrap items-center gap-10">
+          <div className="flex flex-wrap items-center gap-x-8 gap-y-5 md:flex-nowrap md:gap-10">
             {previousLogos.map(({ name, src, height }) => (
               <img
                 key={name}
