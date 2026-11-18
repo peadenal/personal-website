@@ -102,9 +102,14 @@ const Comments = ({ slug }: { slug: string }) => {
       )}
 
       {status === "sent" ? (
-        <p role="status" className="text-sm rounded-md border border-border bg-card px-4 py-3">
-          Thanks. Your comment was received and will appear here once it’s been reviewed.
-        </p>
+        <div role="status" className="text-sm rounded-md border border-border bg-card px-4 py-3 space-y-2">
+          <p>Thanks. Your comment was received and will appear here once it’s been reviewed.</p>
+          <p className="text-muted-foreground">
+            Because this is a personal, professional site, I review comments before they’re posted, at least for
+            now. The aim is to keep the conversation focused. Anything that isn’t harmful or unlawful will be
+            approved.
+          </p>
+        </div>
       ) : (
         <form onSubmit={onSubmit} className="space-y-4">
           <div>
