@@ -7,7 +7,7 @@ const socials = [
   { icon: Mail, href: "mailto:peadenal@gmail.com", label: "Email" },
 ];
 
-const currentLogo = { name: "KPMG", src: "/logos/kpmg.svg", height: 28 };
+const currentLogo = { name: "KPMG", src: "/logos/kpmg.svg", height: 44 };
 const previousLogos = [
   { name: "Deloitte", src: "/logos/deloitte.svg", height: 24 },
   { name: "HHS", src: "/logos/hhs.svg", height: 28 },
@@ -17,7 +17,7 @@ const previousLogos = [
 ];
 
 const HeroSection = () => (
-  <section className="min-h-screen flex items-center section-padding pt-28">
+  <section className="md:min-h-screen flex items-center section-padding pt-28 !pb-4 md:!pb-28">
     <div className="max-w-5xl mx-auto w-full">
       <div className="grid md:grid-cols-[280px_1fr] lg:grid-cols-[320px_1fr] gap-12 md:gap-16 items-center">
         {/* Headshot */}
@@ -66,7 +66,7 @@ const HeroSection = () => (
 
       {/* Social proof bar */}
       <AnimatedSection delay={0.3}>
-        <div className="mt-16 pt-8 border-t border-border">
+        <div className="mt-8 md:mt-16 pt-8 border-t border-border">
           <p className="text-xs text-muted-foreground uppercase tracking-wider mb-3">
             Currently at
           </p>
