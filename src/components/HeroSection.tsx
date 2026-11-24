@@ -7,7 +7,7 @@ const socials = [
   { icon: Mail, href: "mailto:peadenal@gmail.com", label: "Email" },
 ];
 
-const currentLogo = { name: "KPMG", src: "/logos/kpmg.svg", height: 44 };
+const currentLogo = { name: "KPMG", src: "/logos/kpmg.svg", height: 52 };
 const previousLogos = [
   { name: "Deloitte", src: "/logos/deloitte.svg", height: 24 },
   { name: "HHS", src: "/logos/hhs.svg", height: 28 },
@@ -17,7 +17,7 @@ const previousLogos = [
 ];
 
 const HeroSection = () => (
-  <section className="md:min-h-screen flex items-center section-padding pt-28 !pb-4 md:!pb-28">
+  <section className="flex items-center section-padding pt-28 !pb-4 md:!pb-6">
     <div className="max-w-5xl mx-auto w-full">
       <div className="grid md:grid-cols-[280px_1fr] lg:grid-cols-[320px_1fr] gap-12 md:gap-16 items-center">
         {/* Headshot */}
