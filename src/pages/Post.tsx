@@ -29,7 +29,7 @@ const Post = () => {
   useEffect(() => {
     if (!post) return;
     const previous = document.title;
-    document.title = `${post.title} — Andrew Peaden`;
+    document.title = `${post.title} — Andrew Peaden, CPA`;
     return () => {
       document.title = previous;
     };
